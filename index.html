@@ -1,350 +1,808 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>NYCICC Cyber Ministry SOP 2025</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NYCICC Cyber Ministry — Slides & Weekly Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <style>
+    :root{
+      --bg:#0e1116;
+      --panel:#121720;
+      --accent:#4BA3FF;
+      --muted:#aeb7c4;
+      --text:#e9eef5;
+      --danger:#ff6b6b;
+      --success:#66d08c;
+      --warning:#ffd36e;
+      --border:#202733;
+      --pill:#0f141b;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1160px;margin:0 auto;padding:18px 14px 48px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;flex-direction:column}
+    h1{margin:0;font-size:22px;font-weight:800;letter-spacing:.2px}
+    .sub{color:var(--muted);font-size:13px}
+    .contact{color:var(--muted);font-size:12px}
+    .pill{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:4px 10px;background:var(--pill);color:var(--text);font-size:12px}
+    .muted{color:var(--muted)}
 
-    <!-- Reveal.js core (free). Open in Chrome → Print to PDF:
-         Landscape, Margins: None, Background graphics: ON, Scale: 100% -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+    @media (max-width:860px){ .cards{grid-template-columns:1fr} }
+    .card{
+      background:linear-gradient(180deg, rgba(75,163,255,0.05) 0%, rgba(16,22,29,0.6) 80%), var(--panel);
+      border:1px solid var(--border);border-radius:14px;padding:16px;
+      display:flex;flex-direction:column;gap:10px;min-height:160px
+    }
+    .card h2{margin:0 0 4px 0;font-size:18px}
+    .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+    button,.btn{
+      background:#15202c;border:1px solid var(--border);color:var(--text);
+      padding:10px 14px;border-radius:10px;cursor:pointer;font-size:14px
+    }
+    button:hover{border-color:#2a3441}
+    .btn-primary{background:var(--accent);border-color:var(--accent);color:#061523}
 
-    <!-- Sidebar menu plugin (official community plugin) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/denehyg/reveal.js-menu@latest/menu.css">
+    .view{display:none;margin-top:14px}
+    .view.active{display:block}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px}
 
-    <style>
-      html, body { height: 100%; }
-      .reveal { font-family: Inter, Arial, sans-serif; }
-      .reveal h1, .reveal h2, .reveal h3 { color: #FFFFFF; }
-      .reveal section {
-        font-size: 32px;
-        line-height: 1.35;
-        padding-bottom: 72px; /* space so text doesn't hit footer */
-      }
-      .footer {
-        position: absolute; left: 0; right: 0; bottom: 24px;
-        text-align: center; font-size: 18px; color: #9A9A9A;
-        pointer-events: none;
-      }
-      .small { font-size: 26px; }
-      .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-      .muted { color: #B8B8B8; }
-      .pill {
-        display:inline-block; padding:4px 10px; border:1px solid #2E2E2E;
-        border-radius:999px; background:#1A1A1A; color:#DADADA; margin-right:6px;
-      }
-      ul { margin: 0.6em 0 0 0; }
-      li { margin: 0.22em 0; }
-      .tight li { margin: 0.16em 0; }
+    .iframe-wrap{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#000}
+    iframe{width:100%;height:100%;border:0}
 
-      /* Ensure the menu button is visible above content */
-      .reveal .menu-button {
-        z-index: 1000;
-        opacity: 1 !important;
-        visibility: visible !important;
-      }
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+    select, input[type="text"]{
+      background:#0c1117;border:1px solid var(--border);color:var(--text);
+      padding:10px 12px;border-radius:10px;font-size:14px
+    }
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .badge{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:4px 10px;background:#0f141b;color:var(--text);font-size:12px}
+    .right{margin-left:auto}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin:12px 0 8px}
+    .section-title h3{margin:0;font-size:16px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width: 820px){ .grid{grid-template-columns:1fr} }
 
-      /* Narrow viewport rules (works on windowed desktop or small devices) */
-      @media (max-width: 820px), (max-height: 600px) {
-        .reveal section {
-          font-size: 22px;
-          line-height: 1.4;
-          padding-bottom: 56px;
-        }
-        .reveal h1 { font-size: 36px; }
-        .reveal h2 { font-size: 28px; }
-        .reveal h3 { font-size: 24px; }
-        .small { font-size: 18px; }
-        .two-col { display: block; }   /* stack columns */
-        .pill { font-size: 16px; padding: 3px 8px; }
-        ul { margin-top: 0.4em; }
-        li { margin: 0.18em 0; }
-        .footer { bottom: 18px; font-size: 14px; }
-        .reveal .slide-number { display: none !important; }
-        /* Sidebar/menu sizing on small screens */
-        .reveal .slide-menu { width: 70% !important; }
-        .reveal .slide-menu .menu-panel { font-size: 16px; }
-      }
+    .list{display:flex;flex-direction:column;gap:8px}
+    .item{
+      display:flex;align-items:flex-start;gap:10px;padding:10px;border:1px solid var(--border);
+      border-radius:10px;background:#10161d
+    }
+    .item:hover{border-color:#2a3441}
+    .item input[type="checkbox"]{transform:scale(1.2);margin-top:2px;cursor:pointer}
+    .label{flex:1;line-height:1.35}
+    .meta{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px;flex-wrap:wrap}
+    .pill-sm{display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:999px;background:#0d1217;color:var(--muted);font-size:12px}
 
-      /* Very small heights (short landscape windows) */
-      @media (max-height: 540px) {
-        .reveal section { font-size: 20px; padding-bottom: 48px; }
-        .reveal h1 { font-size: 32px; }
-        .reveal h2 { font-size: 26px; }
-        .footer { bottom: 14px; font-size: 13px; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
+    details{background:#0f1318;border:1px solid var(--border);border-radius:10px}
+    summary{cursor:pointer;padding:12px 14px;font-weight:700}
+    details .content{padding:10px 14px;border-top:1px solid var(--border)}
 
-        <!-- Slide 1 -->
-        <section>
-          <h1>NYCICC Cyber Ministry SOP 2025</h1>
-          <p class="small">Mission: Use digital tools to serve worship, disciple, and reach NYC</p>
-          <p><span class="pill">Live Service Management</span> <span class="pill">Rapid Content Creation</span></p>
-          <p class="muted">Core values: Excellence · Consistency · Discipleship · Security</p>
-          <p class="small">Lead: Excel Espina · excel.espina@nycicc.org · (347) 837-4721</p>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
+    .warn{background:#1b1410;border:1px solid #3a1f17;color:#ffc9b3;border-radius:10px;padding:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>NYCICC Cyber Ministry</h1>
+        <div class="sub">Choose a path: Slides or Weekly Tracker</div>
+        <div class="contact">Lead: Excel Espina • excel.espina@nycicc.org • (347) 837-4721</div>
+      </div>
+      <div>
+        <span class="pill">Dark Theme</span>
+        <span class="pill">Serverless</span>
+        <span class="pill">GitHub Pages Ready</span>
+      </div>
+    </header>
 
-        <!-- Slide 2 -->
-        <section>
-          <h2>Overview: Two Pillars</h2>
-          <div class="two-col">
-            <div>
-              <h3>Live Service Management</h3>
-              <ul>
-                <li>In-room screens/lyrics</li>
-                <li>Livestream (YouTube + OBS)</li>
-                <li>Reliable audio/video + backups</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Rapid Content Creation</h3>
-              <ul>
-                <li>Weekly content that does ministry</li>
-                <li>Follow-up to studies, groups, serving</li>
-              </ul>
-            </div>
-          </div>
-          <p class="small muted">Principles: weekly cadence · simple systems · quality > complexity · measurable outcomes</p>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 3 -->
-        <section>
-          <h2>Roles & Responsibilities</h2>
-          <ul class="tight">
-            <li><b>Technical Director</b>: systems, training, QA, backups, checklists</li>
-            <li><b>Livestream Lead</b>: OBS scenes, routing, YT scheduling, recording</li>
-            <li><b>Lyrics/Slides Lead</b>: song order, formatting, CCLI if displayed</li>
-            <li><b>Content Lead</b>: calendar, capture, edit, post, analytics</li>
-            <li><b>Follow-Up Coordinator</b>: replies 24–48h, invites, 6-week path</li>
-          </ul>
-          <p class="small muted">Buddy system · clear handoffs · run-of-show · incident log · monthly review</p>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 4 -->
-        <section>
-          <h2>Worship Lyrics Workflow</h2>
-          <ul>
-            <li>Lock song order ≥48h before (coordinate with worship leader)</li>
-            <li>Pull lyrics from the official Song Book; verify alignment</li>
-            <li>Proofread line breaks, capitalization, readability</li>
-            <li>Accessibility: ≥48pt font, high contrast, no busy backgrounds</li>
-            <li>Rehearsal run-through; export backup PDF/PNG to USB</li>
-          </ul>
-          <p class="small muted">Compliance: ensure licensing (CCLI if displayed); avoid posting full lyrics publicly</p>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 5 -->
-        <section>
-          <h2>Livestream Prep (YouTube + OBS)</h2>
-          <ul>
-            <li>Schedule YouTube livestream ≥1 day before</li>
-            <li>Set title, description, tags, thumbnail, category</li>
-            <li>OBS scenes: Pre, Welcome, Sermon, Lyrics/L3, Offering, Communion, Outro</li>
-            <li>Label sources; optional hotkeys; prebuilt lower-thirds</li>
-            <li>Run a 2-minute unlisted test; record locally; auto-start/stop off</li>
-            <li>Audio: target LUFS -18 to -14; peaks around -6 dB</li>
-          </ul>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 6 -->
-        <section>
-          <h2>Audio/Video Routing</h2>
-          <ul>
-            <li>Cameras: connect/label; set white balance and exposure; match frame rates</li>
-            <li>Option 1: DJI Mic → laptop; OBS source = “Mic Receiver”</li>
-            <li>Option 2: Sound board monitor out → camera → USB capture; OBS audio = “Camera”</li>
-            <li>Monitor with closed-back headphones; 80 Hz HPF on speech; minimal AGC</li>
-            <li>Keep peaks ~ -6 dB; maintain voice clarity over music</li>
-            <li>Redundancy: spare cables, batteries, backup mic/transmitter</li>
-          </ul>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 7 -->
-        <section>
-          <h2>Network & Fail-safes</h2>
-          <ul>
-            <li>Upload ≥10 Mbps; test 30 min pre-service (speed + ping)</li>
-            <li>Hotspot/secondary connection ready</li>
-            <li>UPS on mixer, streaming PC, router/ONT</li>
-            <li>Save OBS profiles/scenes to cloud + USB</li>
-            <li>If stream drops: keep recording; post replay within 2 hours</li>
-            <li>Log incidents: issue, time, fix, owner, prevention</li>
-          </ul>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 8 -->
-        <section>
-          <h2>Rapid Content Creation (Weekly)</h2>
-          <ul>
-            <li>Sun: Scripture + sermon clip (60–90s)</li>
-            <li>Tue: Teaching nugget/carousel</li>
-            <li>Thu: Testimony/story</li>
-            <li>Sat: Invitation/“What to expect”</li>
-            <li>Batch record monthly; use caption/graphic templates</li>
-            <li>File hygiene: On Google Drive,<br>YYMMDD_Event/<i>ministry</i>/<i>type</i></li>
-            <li>Example: 250623_SundayService/MN/Pictures</li>
-          </ul>
-          <p class="small muted">Quality: hook in 2s · captions on all videos · strong thumbnail contrast</p>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 9 -->
-        <section>
-          <h2>Funnel + Platforms</h2>
-          <ul>
-            <li>Top: inspiration, community highlights</li>
-            <li>Middle: short teachings, testimonies, Q&A</li>
-            <li>Bottom: invites, study interest, groups, serving</li>
-            <li>Priority: Instagram, YouTube/Shorts, Facebook; then TikTok, LinkedIn</li>
-            <li>Hootsuite: schedule, listen; respond to comments/DMs &lt;24h</li>
-            <li>90/10 rule: 90% value, 10% invite</li>
-          </ul>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 10 -->
-        <section>
-          <h2>Website Updates (Monthly)</h2>
-          <ul>
-            <li>About/Church Convictions</li>
-            <li>Sunday Location/Times</li>
-            <li>Interest Form for Bible Study</li>
-            <li>Contribution/Missions info</li>
-            <li>Embed latest sermon + events</li>
-            <li>Test forms + auto-replies; ensure mobile accessibility</li>
-          </ul>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 11 -->
-        <section>
-          <h2>Follow-Up & Pastoral Care</h2>
-          <ul>
-            <li>Reply to comments/DMs within 24–48h</li>
-            <li>Clear next steps: study invite, service info, group connection</li>
-            <li>6-week path: welcome → devos → group invite → call → serve invite → ongoing care</li>
-            <li>Privacy: consent-based; avoid sensitive details in public</li>
-            <li>Escalate spiritual/crisis needs to leaders within 24h</li>
-          </ul>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Slide 12 -->
-        <section>
-          <h2>Quality, Training, Metrics</h2>
-          <ul>
-            <li>Checklists: pre-service, go-live, post-service, content QA</li>
-            <li>Training: 4-week onboarding; monthly workshops; buddy system</li>
-            <li>Metrics: uptime, watch time, saves/shares, form fills, conversions</li>
-            <li>Monthly review: wins, gaps, assigned fixes; update SOPs</li>
-          </ul>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
-        <!-- Appendix (Optional) -->
-        <section>
-          <h2>Appendix — Quick Checklists</h2>
-          <p><b>Pre-Service (Tech)</b></p>
-          <ul class="tight">
-            <li>Upload ≥10 Mbps; hotspot ready</li>
-            <li>Cameras connected; batteries/SD checked</li>
-            <li>Audio route set (Mic Receiver or Camera)</li>
-            <li>OBS scenes verified; record enabled; test done</li>
-            <li>YouTube stream scheduled ≥1 day before</li>
-          </ul>
-          <p><b>Pre-Service (Lyrics)</b></p>
-          <ul class="tight">
-            <li>Song order verified (≥48h lock)</li>
-            <li>Lyrics from official Song Book; formatting checked</li>
-            <li>Backup slides to USB; accessibility confirmed</li>
-          </ul>
-          <p><b>Post-Service</b></p>
-          <ul class="tight">
-            <li>Stop stream/record; verify local file</li>
-            <li>Upload sermon/clip assets</li>
-            <li>Log incidents and action items</li>
-            <li>Begin content clipping (60–90s highlight)</li>
-          </ul>
-          <p class="small muted">Lead: Excel Espina · excel.espina@nycicc.org · (347) 837-4721</p>
-          <div class="footer">NYCICC Cyber Ministry — 2025</div>
-        </section>
-
+    <div class="cards">
+      <div class="card">
+        <h2>Slides — SOP 2025</h2>
+        <div class="muted">Open the interactive Reveal.js deck with a sidebar menu. Print to PDF from the browser if needed.</div>
+        <div class="btn-row">
+          <button class="btn-primary" id="openSlides">Open Slides</button>
+          <button class="btn" id="embedSlides">Embed Below</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Weekly Tracker</h2>
+        <div class="muted">Auto-generated checklist per week, filtered by pillar and role, with history and custom categories.</div>
+        <div class="btn-row">
+          <button class="btn-primary" id="openTracker">Open Tracker</button>
+          <button class="btn" id="goAll">Show All Items</button>
+        </div>
       </div>
     </div>
 
-    <!-- Reveal.js core -->
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
-    <!-- Sidebar menu plugin JS (must load after reveal.js) -->
-    <script src="https://cdn.jsdelivr.net/gh/denehyg/reveal.js-menu@latest/menu.js"></script>
+    <!-- Slides View -->
+    <section id="slidesView" class="view">
+      <div class="section-title">
+        <h3>Slides</h3>
+        <div class="row">
+          <a class="btn" id="openNewTab" href="#" rel="noopener">Open in New Tab</a>
+          <button class="btn" id="hideSlides">Hide</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="iframe-wrap" id="slidesFrameWrap">
+          <div id="slidesFallback" class="warn" style="display:none">
+            Slides file "NYCICC_Cyber_SOP_2025.html" not found at site root. Add it to this repo (same folder as index.html) or update the path in the code.
+          </div>
+        </div>
+        <div class="muted" style="margin-top:8px">Tip: In the slides, use the ≡ button to open the sidebar. Press M to toggle menu, S for speaker notes.</div>
+      </div>
+    </section>
 
-    <!-- Viewport-aware initialization (small windows and phones) -->
-    <script>
-      function isSmallViewport() {
-        // Treat narrow windows or short heights as "small"
-        const w = window.innerWidth;
-        const h = window.innerHeight;
-        const vw = Math.min(w, h);
-        return w <= 820 || h <= 600 || vw <= 700;
-      }
+    <!-- Tracker View -->
+    <section id="trackerView" class="view">
+      <div class="section-title">
+        <h3>Weekly Tracker</h3>
+        <div class="row">
+          <span id="weekBadge" class="badge">Week: …</span>
+          <span class="badge">Reset: Saturday</span>
+          <button class="btn" id="hideTracker">Hide</button>
+        </div>
+      </div>
 
-      function computeSettings() {
-        const small = isSmallViewport();
-        const portrait = window.matchMedia("(orientation: portrait)").matches;
+      <div class="panel">
+        <div class="toolbar">
+          <label class="muted">Pillar</label>
+          <select id="pillarSelect">
+            <option value="all">All</option>
+            <option value="Live Service Management">Live Service Management</option>
+            <option value="Rapid Content Creation">Rapid Content Creation</option>
+          </select>
 
+          <label class="muted">Role</label>
+          <select id="roleSelect">
+            <option value="all">All</option>
+          </select>
+
+          <label class="muted">Categories</label>
+          <select id="categorySelect" multiple size="1" style="min-width:180px"></select>
+
+          <button id="clearFilter" class="btn">Clear Filters</button>
+
+          <span class="right"></span>
+
+          <button id="newWeek" class="btn">New Week Now</button>
+          <button id="uncheckAll" class="btn">Uncheck All</button>
+          <button id="exportJson" class="btn">Export</button>
+          <label class="btn">Import<input id="importJson" type="file" accept="application/json" style="display:none" /></label>
+          <span class="muted" id="lastSaved">Last saved: –</span>
+        </div>
+
+        <div class="row" style="margin-bottom:10px">
+          <input type="text" id="newItemText" placeholder="Add custom checklist item…" />
+          <select id="newItemPillar">
+            <option value="Live Service Management">Live Service Management</option>
+            <option value="Rapid Content Creation">Rapid Content Creation</option>
+          </select>
+          <select id="newItemRole">
+            <option value="Technical Director">Technical Director</option>
+            <option value="Livestream Lead">Livestream Lead</option>
+            <option value="Lyrics/Slides Lead">Lyrics/Slides Lead</option>
+            <option value="Content Lead">Content Lead</option>
+            <option value="Follow-Up Coordinator">Follow-Up Coordinator</option>
+          </select>
+          <input type="text" id="newItemCategories" placeholder="Categories (comma-separated)" />
+          <button class="btn-primary" id="addItem">Add Item</button>
+        </div>
+
+        <div id="listsContainer" class="grid">
+          <div>
+            <div class="section-title">
+              <h3>Live Service Management</h3>
+              <span class="badge" id="lmsCount">0/0</span>
+            </div>
+            <div id="listLMS" class="list"></div>
+          </div>
+          <div>
+            <div class="section-title">
+              <h3>Rapid Content Creation</h3>
+              <span class="badge" id="rccCount">0/0</span>
+            </div>
+            <div id="listRCC" class="list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <h3>History</h3>
+        <div class="muted">Browse previous weeks</div>
+      </div>
+      <div class="panel">
+        <div id="history"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // LocalStorage-safe helpers (fallback to in-memory if blocked)
+    const STORAGE_KEY = 'nycicc_cyber_tracker_v1';
+    let memoryStore = null;
+    function getStorage() {
+      try {
+        const testKey = '__test__';
+        localStorage.setItem(testKey, '1');
+        localStorage.removeItem(testKey);
+        return localStorage;
+      } catch (e) {
+        if (!memoryStore) memoryStore = {};
         return {
-          hash: true,
-          // Hide extra chrome on small viewports to maximize content space
-          slideNumber: small ? false : 'c/t',
-          progress: small ? false : true,
-          controls: true,
-          center: small ? false : true,  // avoid vertical gaps on short screens
-          width: 1600,
-          height: 900,
-          margin: small ? 0.02 : 0.06,   // tighter margins on small screens
-          // Constrain scaling so text stays readable
-          minScale: small ? (portrait ? 0.28 : 0.35) : 0.3,
-          maxScale: small ? (portrait ? 1.15 : 1.35) : 1.5,
-          plugins: [ RevealMenu ],
-          menu: {
-            side: 'left',
-            numbers: true,
-            markers: true,
-            titleSelector: 'h1, h2',
-            hideMissingTitles: false,
-            openButton: true,
-            sticky: true
-          }
+          getItem: k => (k in memoryStore ? memoryStore[k] : null),
+          setItem: (k,v) => { memoryStore[k]=v; },
+          removeItem: k => { delete memoryStore[k]; }
         };
       }
+    }
+    const storage = getStorage();
 
-      // Initialize with viewport-aware settings
-      Reveal.initialize(computeSettings());
+    // Landing controls
+    const slidesView = document.getElementById('slidesView');
+    const trackerView = document.getElementById('trackerView');
+    const openSlidesBtn = document.getElementById('openSlides');
+    const embedSlidesBtn = document.getElementById('embedSlides');
+    const openTrackerBtn = document.getElementById('openTracker');
+    const goAllBtn = document.getElementById('goAll');
+    const hideSlidesBtn = document.getElementById('hideSlides');
+    const hideTrackerBtn = document.getElementById('hideTracker');
+    const slidesFrameWrap = document.getElementById('slidesFrameWrap');
+    const slidesFallback = document.getElementById('slidesFallback');
+    const openNewTab = document.getElementById('openNewTab');
 
-      // Re-apply layout when the viewport changes
-      let resizeTimer;
-      function reconfigure() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          const cfg = computeSettings();
-          Reveal.configure(cfg);
-          Reveal.layout();
-        }, 120);
+    const SLIDES_PATH = 'NYCICC_Cyber_SOP_2025.html';
+
+    openSlidesBtn.addEventListener('click', () => {
+      window.open(SLIDES_PATH, '_blank', 'noopener');
+    });
+    openNewTab.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(SLIDES_PATH, '_blank', 'noopener');
+    });
+    embedSlidesBtn.addEventListener('click', () => {
+      slidesView.classList.add('active');
+      trackerView.classList.remove('active');
+      slidesFrameWrap.innerHTML = '';
+      slidesFallback.style.display = 'none';
+      const iframe = document.createElement('iframe');
+      iframe.src = SLIDES_PATH;
+      iframe.loading = 'lazy';
+      iframe.onerror = () => {
+        slidesFrameWrap.innerHTML = '';
+        slidesFallback.style.display = 'block';
+        slidesFrameWrap.appendChild(slidesFallback);
+      };
+      slidesFrameWrap.appendChild(iframe);
+      window.scrollTo({top: slidesView.offsetTop - 8, behavior: 'smooth'});
+    });
+
+    openTrackerBtn.addEventListener('click', () => {
+      trackerView.classList.add('active');
+      slidesView.classList.remove('active');
+      safeInitAndRender();
+      window.scrollTo({top: trackerView.offsetTop - 8, behavior: 'smooth'});
+    });
+    goAllBtn.addEventListener('click', () => {
+      trackerView.classList.add('active');
+      slidesView.classList.remove('active');
+      pillarSelect.value = 'all';
+      buildRoleOptions();
+      Array.from(categorySelect.options).forEach(o => o.selected = false);
+      safeInitAndRender();
+      window.scrollTo({top: trackerView.offsetTop - 8, behavior: 'smooth'});
+    });
+    hideSlidesBtn.addEventListener('click', () => slidesView.classList.remove('active'));
+    hideTrackerBtn.addEventListener('click', () => trackerView.classList.remove('active'));
+
+    // Tracker
+    const WEEK_START_DAY = 6; // Saturday
+    const weekBadgeEl = document.getElementById('weekBadge');
+    const lastSavedEl = document.getElementById('lastSaved');
+
+    const pillarSelect = document.getElementById('pillarSelect');
+    const roleSelect = document.getElementById('roleSelect');
+    const categorySelect = document.getElementById('categorySelect');
+
+    const listLMS = document.getElementById('listLMS');
+    const listRCC = document.getElementById('listRCC');
+    const lmsCount = document.getElementById('lmsCount');
+    const rccCount = document.getElementById('rccCount');
+
+    const newWeekBtn = document.getElementById('newWeek');
+    const uncheckAllBtn = document.getElementById('uncheckAll');
+    const exportBtn = document.getElementById('exportJson');
+    const importInp = document.getElementById('importJson');
+
+    const newItemText = document.getElementById('newItemText');
+    const newItemPillar = document.getElementById('newItemPillar');
+    const newItemRole = document.getElementById('newItemRole');
+    const newItemCategories = document.getElementById('newItemCategories');
+    const addItemBtn = document.getElementById('addItem');
+
+    const historyEl = document.getElementById('history');
+
+    const ROLES_BY_PILLAR = {
+      'Live Service Management': [
+        'Technical Director',
+        'Livestream Lead',
+        'Lyrics/Slides Lead'
+      ],
+      'Rapid Content Creation': [
+        'Content Lead',
+        'Follow-Up Coordinator'
+      ]
+    };
+
+    const TEMPLATE_ITEMS = [
+      // Live Service Management
+      { text:'YouTube livestream scheduled ≥1 day before', pillar:'Live Service Management', role:'Livestream Lead', categories:['Livestream','Scheduling'] },
+      { text:'OBS scenes verified (Pre, Welcome, Sermon, Lyrics/L3, Offering, Communion, Outro)', pillar:'Live Service Management', role:'Livestream Lead', categories:['OBS','Scenes'] },
+      { text:'Cameras connected & labeled; white balance & exposure set; frame rates match', pillar:'Live Service Management', role:'Technical Director', categories:['Cameras','Video'] },
+      { text:'Audio route set (Mic Receiver or Camera) and monitored on headphones', pillar:'Live Service Management', role:'Livestream Lead', categories:['Audio','Routing'] },
+      { text:'Run unlisted 2-minute test stream; verify LUFS -18 to -14; peaks ~ -6 dB', pillar:'Live Service Management', role:'Livestream Lead', categories:['Testing','Audio'] },
+      { text:'Record locally enabled; auto-start/stop disabled', pillar:'Live Service Management', role:'Livestream Lead', categories:['Recording'] },
+      { text:'Redundancy ready (spare cables, batteries, backup mic/transmitter)', pillar:'Live Service Management', role:'Technical Director', categories:['Redundancy'] },
+      { text:'Upload speed ≥10 Mbps; hotspot backup ready; UPS on mixer/PC/router', pillar:'Live Service Management', role:'Technical Director', categories:['Network','Power'] },
+      { text:'If stream drops: keep recording; post replay within 2 hours', pillar:'Live Service Management', role:'Livestream Lead', categories:['Contingency'] },
+      { text:'Song order locked ≥48h (coordinate with worship leader)', pillar:'Live Service Management', role:'Lyrics/Slides Lead', categories:['Worship','Coordination'] },
+      { text:'Lyrics from official Song Book; formatting & readability checked', pillar:'Live Service Management', role:'Lyrics/Slides Lead', categories:['Lyrics','Formatting'] },
+      { text:'Backup slides exported (PDF/PNG) to USB', pillar:'Live Service Management', role:'Lyrics/Slides Lead', categories:['Backup','Slides'] },
+      { text:'Accessibility verified: high contrast, large fonts', pillar:'Live Service Management', role:'Lyrics/Slides Lead', categories:['Accessibility'] },
+
+      // Rapid Content Creation
+      { text:'Sunday sermon clip prepared (60–90s) and captioned', pillar:'Rapid Content Creation', role:'Content Lead', categories:['Sermon Clip','Captions'] },
+      { text:'Hootsuite posts scheduled for Tue/Thu/Sat', pillar:'Rapid Content Creation', role:'Content Lead', categories:['Scheduling','Hootsuite'] },
+      { text:'Website: location/times/events updated; forms tested', pillar:'Rapid Content Creation', role:'Content Lead', categories:['Website','Forms'] },
+      { text:'Reply to new comments/DMs within 24–48h', pillar:'Rapid Content Creation', role:'Follow-Up Coordinator', categories:['Follow-Up','DMs'] },
+      { text:'Invite contacts to Bible study / small group', pillar:'Rapid Content Creation', role:'Follow-Up Coordinator', categories:['Invitations','Groups'] },
+      { text:'Log pastoral needs; escalate within 24h', pillar:'Rapid Content Creation', role:'Follow-Up Coordinator', categories:['Care','Escalation'] }
+    ];
+
+    function loadState(){
+      try{
+        const raw = storage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      }catch(e){ console.error('loadState error', e); return null; }
+    }
+    function saveState(state){
+      try{
+        state.lastSavedAt = new Date().toISOString();
+        storage.setItem(STORAGE_KEY, JSON.stringify(state));
+        renderLastSaved(state);
+      }catch(e){ console.error('saveState error', e); }
+    }
+    function startOfWeek(date, weekStartIndex){
+      const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      const day = d.getDay();
+      const diff = (day - weekStartIndex + 7) % 7;
+      d.setDate(d.getDate() - diff);
+      d.setHours(0,0,0,0);
+      return d;
+    }
+    function isoDate(d){
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,'0');
+      const dd = String(d.getDate()).padStart(2,'0');
+      return `${y}-${m}-${dd}`;
+    }
+    function human(d){
+      const o = {year:'numeric',month:'short',day:'2-digit'};
+      return d.toLocaleDateString(undefined,o);
+    }
+    function weekRange(weekISO){
+      const [y,m,d] = weekISO.split('-').map(Number);
+      const start = new Date(y, m-1, d);
+      const end = new Date(start); end.setDate(end.getDate()+6);
+      return `${human(start)} – ${human(end)}`;
+    }
+
+    function generateWeekTemplate(dateBase){
+      const ws = startOfWeek(dateBase, WEEK_START_DAY);
+      const key = isoDate(ws);
+      const items = TEMPLATE_ITEMS.map((t,i)=>({
+        id: `${key}-${i}-${Math.random().toString(36).slice(2,7)}`,
+        text: t.text,
+        pillar: t.pillar,
+        role: t.role,
+        categories: t.categories.slice(),
+        checked:false,
+        createdAt:new Date().toISOString(),
+        updatedAt:null
+      }));
+      return { key, data:{ items, createdAt:new Date().toISOString(), updatedAt:new Date().toISOString() } };
+    }
+
+    function ensureCurrentWeek(state){
+      const now = new Date();
+      const wsKey = isoDate(startOfWeek(now, WEEK_START_DAY));
+      if (!state.weeks) state.weeks = {};
+      if (!state.currentWeekStartISO || state.currentWeekStartISO !== wsKey){
+        if (!state.weeks[wsKey]){
+          const {key,data} = generateWeekTemplate(now);
+          state.weeks[key] = data;
+        }
+        state.currentWeekStartISO = wsKey;
+        saveState(state);
+      }
+      return state;
+    }
+
+    function getCurrentWeek(state){
+      return state.weeks[state.currentWeekStartISO];
+    }
+
+    function renderLastSaved(state){
+      lastSavedEl.textContent = state?.lastSavedAt ? `Last saved: ${new Date(state.lastSavedAt).toLocaleString()}` : 'Last saved: –';
+    }
+
+    function buildRoleOptions(){
+      const pillar = pillarSelect.value;
+      const prior = roleSelect.value;
+      const roles = new Set();
+      if (pillar === 'all'){
+        Object.values(ROLES_BY_PILLAR).forEach(arr => arr.forEach(r => roles.add(r)));
+      } else {
+        (ROLES_BY_PILLAR[pillar] || []).forEach(r => roles.add(r));
+      }
+      roleSelect.innerHTML = '<option value="all">All</option>' + Array.from(roles).map(r=>`<option value="${r}">${r}</option>`).join('');
+      if (Array.from(roles).includes(prior)) roleSelect.value = prior;
+    }
+
+    function updateCategoryOptionsFromData(){
+      const state = loadState() || {weeks:{},currentWeekStartISO:null};
+      const wk = getCurrentWeek(state);
+      const cats = new Set();
+      (wk?.items || []).forEach(i => (i.categories||[]).forEach(c => cats.add(c)));
+      const currentSelected = Array.from(categorySelect.selectedOptions).map(o=>o.value);
+      categorySelect.innerHTML = Array.from(cats).sort().map(c=>`<option value="${c}">${c}</option>`).join('');
+      currentSelected.forEach(c=>{
+        const opt = Array.from(categorySelect.options).find(o => o.value === c);
+        if (opt) opt.selected = true;
+      });
+      categorySelect.size = Math.min(Math.max(1, categorySelect.options.length), 6);
+    }
+
+    function getSelectedCategories(){
+      return Array.from(categorySelect.selectedOptions).map(o=>o.value);
+    }
+
+    function renderAll(){
+      const state = loadState() || {weeks:{},currentWeekStartISO:null};
+      const wk = getCurrentWeek(state);
+      if (!wk){ console.warn('No current week to render'); return; }
+
+      weekBadgeEl.textContent = `Week: ${state.currentWeekStartISO} (${weekRange(state.currentWeekStartISO)})`;
+
+      const pillarFilter = pillarSelect.value;
+      const roleFilter = roleSelect.value;
+      const catsFilter = getSelectedCategories();
+
+      const filtered = wk.items.filter(it=>{
+        if (pillarFilter !== 'all' && it.pillar !== pillarFilter) return false;
+        if (roleFilter !== 'all' && it.role !== roleFilter) return false;
+        if (catsFilter.length > 0){
+          const its = new Set(it.categories || []);
+          const ok = catsFilter.every(c => its.has(c));
+          if (!ok) return false;
+        }
+        return true;
+      });
+
+      const lms = filtered.filter(i => i.pillar === 'Live Service Management');
+      const rcc = filtered.filter(i => i.pillar === 'Rapid Content Creation');
+
+      function fillList(container, items, countEl){
+        container.innerHTML = '';
+        let checked = 0;
+        items.forEach(it=>{
+          if (it.checked) checked++;
+          const row = document.createElement('div');
+          row.className = 'item';
+
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.checked = !!it.checked;
+          cb.addEventListener('click', ev => ev.stopPropagation());
+          cb.addEventListener('change', ()=>{
+            try{
+              const st = loadState();
+              if (!st || !st.currentWeekStartISO || !st.weeks?.[st.currentWeekStartISO]) {
+                console.error('State missing when toggling checkbox');
+                return;
+              }
+              const cur = st.weeks[st.currentWeekStartISO];
+              const idx = cur.items.findIndex(x => x.id === it.id);
+              if (idx === -1) return;
+              cur.items[idx].checked = cb.checked;
+              cur.items[idx].updatedAt = new Date().toISOString();
+              cur.updatedAt = cur.items[idx].updatedAt;
+              saveState(st);
+              renderAll();
+              renderHistory(st);
+            }catch(err){
+              console.error('Checkbox change error:', err);
+            }
+          });
+
+          const label = document.createElement('div');
+          label.className = 'label';
+          label.textContent = it.text;
+
+          const meta = document.createElement('div');
+          meta.className = 'meta';
+          const created = it.createdAt ? new Date(it.createdAt).toLocaleString() : '–';
+          const updated = it.updatedAt ? new Date(it.updatedAt).toLocaleString() : '–';
+          const cats = (it.categories||[]).join(', ') || '—';
+          meta.innerHTML = `
+            <span class="pill-sm">${it.role}</span>
+            <span class="pill-sm">Cats: ${cats}</span>
+            <span class="pill-sm">Created: ${created}</span>
+            <span class="pill-sm">Updated: ${updated}</span>
+          `;
+
+          const del = document.createElement('button');
+          del.className = 'btn';
+          del.textContent = 'Remove';
+          del.title = 'Remove this item';
+          del.addEventListener('click', ()=>{
+            try{
+              if (!confirm('Remove this item?')) return;
+              const st = loadState() || {weeks:{}, currentWeekStartISO:null};
+              const cur = st.weeks?.[st.currentWeekStartISO];
+              if (!cur) return;
+              cur.items = cur.items.filter(x=>x.id !== it.id);
+              cur.updatedAt = new Date().toISOString();
+              saveState(st);
+              renderAll();
+              renderHistory(st);
+              updateCategoryOptionsFromData();
+            }catch(err){ console.error('Remove item error:', err); }
+          });
+
+          row.appendChild(cb);
+          row.appendChild(label);
+          row.appendChild(meta);
+          row.appendChild(del);
+          container.appendChild(row);
+        });
+        countEl.textContent = `${checked}/${items.length}`;
       }
 
-      window.addEventListener('resize', reconfigure);
-      window.matchMedia("(orientation: portrait)").addEventListener('change', reconfigure);
-    </script>
-  </body>
+      fillList(listLMS, lms, lmsCount);
+      fillList(listRCC, rcc, rccCount);
+    }
+
+    function renderHistory(state){
+      const keys = Object.keys(state.weeks||{}).sort().reverse();
+      historyEl.innerHTML = '';
+      if (keys.length === 0){ historyEl.innerHTML = '<div class="muted">No history yet.</div>'; return; }
+
+      keys.forEach(k=>{
+        const wk = state.weeks[k];
+        const done = wk.items.filter(i=>i.checked).length;
+        const total = wk.items.length;
+        const pct = total ? Math.round(done/total*100) : 0;
+
+        const details = document.createElement('details');
+        details.style.marginBottom = '8px';
+
+        const summary = document.createElement('summary');
+        summary.innerHTML = `
+          <span>${weekRange(k)}</span>
+          <span class="muted" style="margin-left:8px">(${k}${k===state.currentWeekStartISO?', current':''})</span>
+          <span class="badge" style="margin-left:8px">${done}/${total} • ${pct}%</span>
+        `;
+
+        const content = document.createElement('div');
+        content.className = 'content';
+
+        if (total === 0){
+          content.innerHTML = '<div class="muted">No items.</div>';
+        }else{
+          const byPillar = {};
+          wk.items.forEach(i=>{
+            byPillar[i.pillar] = byPillar[i.pillar] || {};
+            byPillar[i.pillar][i.role] = byPillar[i.pillar][i.role] || [];
+            byPillar[i.pillar][i.role].push(i);
+          });
+
+          Object.entries(byPillar).forEach(([pillar, rolesObj])=>{
+            const h = document.createElement('div');
+            h.style.margin = '8px 0 6px';
+            h.innerHTML = `<strong>${pillar}</strong>`;
+            content.appendChild(h);
+
+            Object.entries(rolesObj).forEach(([role, items])=>{
+              const r = document.createElement('div');
+              r.style.margin = '4px 0 6px';
+              r.innerHTML = `<span class="pill-sm">${role}</span>`;
+              content.appendChild(r);
+
+              const ul = document.createElement('div');
+              ul.className = 'list';
+              items.forEach(it=>{
+                const li = document.createElement('div');
+                li.className = 'item';
+                li.innerHTML = `
+                  <div class="label">${it.text}</div>
+                  <div class="meta">
+                    <span class="pill-sm">${it.checked ? 'Done' : 'Open'}</span>
+                    <span class="pill-sm">Cats: ${(it.categories||[]).join(', ')||'—'}</span>
+                    <span class="pill-sm">Created: ${it.createdAt ? new Date(it.createdAt).toLocaleString() : '–'}</span>
+                    <span class="pill-sm">Updated: ${it.updatedAt ? new Date(it.updatedAt).toLocaleString() : '–'}</span>
+                  </div>
+                `;
+                ul.appendChild(li);
+              });
+              content.appendChild(ul);
+            });
+          });
+        }
+
+        details.appendChild(summary);
+        details.appendChild(content);
+        historyEl.appendChild(details);
+      });
+    }
+
+    function initializeState(){
+      let state = loadState();
+      if (!state) state = {version:1, weeks:{}, currentWeekStartISO:null, lastSavedAt:null};
+      state = ensureCurrentWeek(state);
+      return state;
+    }
+
+    function forceNewWeek(){
+      const state = initializeState();
+      const now = new Date();
+      const start = startOfWeek(now, WEEK_START_DAY);
+      const next = new Date(start); next.setDate(next.getDate()+7);
+      const wsKey = isoDate(next);
+      if (!state.weeks[wsKey]){
+        const {key,data} = generateWeekTemplate(next);
+        state.weeks[key] = data;
+      }
+      state.currentWeekStartISO = wsKey;
+      saveState(state);
+      updateCategoryOptionsFromData();
+      renderAll();
+      renderHistory(state);
+    }
+
+    function uncheckAll(){
+      const state = initializeState();
+      const wk = getCurrentWeek(state);
+      wk.items.forEach(i => { i.checked = false; i.updatedAt = new Date().toISOString(); });
+      wk.updatedAt = new Date().toISOString();
+      saveState(state);
+      renderAll();
+      renderHistory(state);
+    }
+
+    function addItem(){
+      const text = (newItemText.value||'').trim();
+      if (!text) return;
+      const pillar = newItemPillar.value;
+      const role = newItemRole.value;
+      const cats = (newItemCategories.value||'').split(',').map(s=>s.trim()).filter(Boolean);
+
+      const state = initializeState();
+      const wkKey = state.currentWeekStartISO;
+      const wk = state.weeks[wkKey];
+      const id = `${wkKey}-u-${Math.random().toString(36).slice(2,8)}`;
+      wk.items.push({
+        id,text,pillar,role,categories:cats,checked:false,
+        createdAt:new Date().toISOString(),updatedAt:null
+      });
+      wk.updatedAt = new Date().toISOString();
+      saveState(state);
+
+      newItemText.value = '';
+      newItemCategories.value = '';
+
+      updateCategoryOptionsFromData();
+      renderAll();
+      renderHistory(state);
+    }
+
+    function exportData(){
+      const state = loadState() || {version:1,weeks:{},currentWeekStartISO:null,lastSavedAt:null};
+      const blob = new Blob([JSON.stringify(state,null,2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `nycicc_cyber_tracker_${new Date().toISOString().slice(0,10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 0);
+    }
+
+    function importData(file){
+      const reader = new FileReader();
+      reader.onload = ()=>{
+        try{
+          const data = JSON.parse(reader.result);
+          if (!data || typeof data !== 'object' || !data.weeks) { alert('Invalid JSON'); return; }
+          storage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const state = initializeState();
+          updateCategoryOptionsFromData();
+          renderAll();
+          renderHistory(state);
+          renderLastSaved(state);
+          alert('Import successful.');
+        }catch(e){ alert('Failed to import.'); }
+      };
+      reader.readAsText(file);
+    }
+
+    function safeInitAndRender(){
+      try{
+        const state = initializeState();
+        buildRoleOptions();
+        updateCategoryOptionsFromData();
+        renderAll();
+        renderHistory(state);
+        renderLastSaved(state);
+
+        const nowKey = isoDate(startOfWeek(new Date(), WEEK_START_DAY));
+        if (state.currentWeekStartISO !== nowKey){
+          if (!state.weeks[nowKey]){
+            const {key,data} = generateWeekTemplate(new Date());
+            state.weeks[key] = data;
+          }
+          state.currentWeekStartISO = nowKey;
+          saveState(state);
+          updateCategoryOptionsFromData();
+          renderAll();
+          renderHistory(state);
+        }
+      }catch(e){
+        console.error('Tracker init error:', e);
+        alert('Tracker failed to initialize. Try refreshing the page. If it persists, clear site data for this domain and reload.');
+      }
+    }
+
+    // Initial boot: prepare tracker state so it works when opened
+    safeInitAndRender();
+
+    // Bind toolbar events
+    document.getElementById('newWeek').addEventListener('click', ()=>{
+      if (!confirm('Create a brand-new week now? Current progress is kept in history.')) return;
+      forceNewWeek();
+    });
+    document.getElementById('uncheckAll').addEventListener('click', ()=>{
+      if (!confirm('Uncheck all items for the current week?')) return;
+      uncheckAll();
+    });
+    document.getElementById('exportJson').addEventListener('click', exportData);
+    document.getElementById('importJson').addEventListener('change', (e)=>{
+      const file = e.target.files && e.target.files[0];
+      if (file) importData(file);
+      e.target.value='';
+    });
+
+    document.getElementById('pillarSelect').addEventListener('change', ()=>{
+      buildRoleOptions();
+      renderAll();
+    });
+    document.getElementById('roleSelect').addEventListener('change', renderAll);
+    document.getElementById('categorySelect').addEventListener('change', renderAll);
+    document.getElementById('clearFilter').addEventListener('click', ()=>{
+      pillarSelect.value = 'all';
+      buildRoleOptions();
+      Array.from(categorySelect.options).forEach(o => o.selected = false);
+      renderAll();
+    });
+
+    document.getElementById('addItem').addEventListener('click', addItem);
+    document.getElementById('newItemText').addEventListener('keydown', (e)=>{ if (e.key==='Enter') addItem(); });
+  </script>
+</body>
 </html>

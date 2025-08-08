@@ -5,24 +5,26 @@
     <title>NYCICC Cyber Ministry SOP 2025</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Reveal.js (fully free). Open this file in Chrome, then Print to PDF with:
-         - Layout: Landscape
-         - Margins: None
-         - Background graphics: ON
-         - Scale: 100% -->
+    <!-- Reveal.js core (free). Open in Chrome → Print to PDF:
+         Landscape, Margins: None, Background graphics: ON, Scale: 100% -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+
+    <!-- Sidebar menu plugin (official community plugin) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/denehyg/reveal.js-menu@latest/menu.css">
+
     <style>
       .reveal { font-family: Inter, Arial, sans-serif; }
       .reveal h1, .reveal h2, .reveal h3 { color: #FFFFFF; }
       .reveal section {
         font-size: 32px;
         line-height: 1.35;
-        padding-bottom: 72px; /* space for footer */
-        }      
-    .footer {
-        position: absolute; left: 0; right: 0; bottom: 12px;
+        padding-bottom: 72px; /* space so text doesn't hit footer */
+      }
+      .footer {
+        position: absolute; left: 0; right: 0; bottom: 24px;
         text-align: center; font-size: 18px; color: #9A9A9A;
+        pointer-events: none;
       }
       .small { font-size: 26px; }
       .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -34,6 +36,13 @@
       ul { margin: 0.6em 0 0 0; }
       li { margin: 0.22em 0; }
       .tight li { margin: 0.16em 0; }
+
+      /* Ensure the menu button is visible above content */
+      .reveal .menu-button {
+        z-index: 1000;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
     </style>
   </head>
   <body>
@@ -153,8 +162,7 @@
             <li>Thu: Testimony/story</li>
             <li>Sat: Invitation/“What to expect”</li>
             <li>Batch record monthly; use caption/graphic templates</li>
-            <li>File hygiene: On Google Drive,</br>YYMMDD_Event/<i>ministry</i>/<i>type</i></li>
-            </br>
+            <li>File hygiene: On Google Drive,<br>YYMMDD_Event/<i>ministry</i>/<i>type</i></li>
             <li>Example: 250623_SundayService/MN/Pictures</li>
           </ul>
           <p class="small muted">Quality: hook in 2s · captions on all videos · strong thumbnail contrast</p>
@@ -214,7 +222,7 @@
           <div class="footer">NYCICC Cyber Ministry — 2025</div>
         </section>
 
-        <!-- Appendix (Optional, can be excluded if you want exactly 12 slides) -->
+        <!-- Appendix (Optional) -->
         <section>
           <h2>Appendix — Quick Checklists</h2>
           <p><b>Pre-Service (Tech)</b></p>
@@ -245,7 +253,11 @@
       </div>
     </div>
 
+    <!-- Reveal.js core -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <!-- Sidebar menu plugin JS (must load after reveal.js) -->
+    <script src="https://cdn.jsdelivr.net/gh/denehyg/reveal.js-menu@latest/menu.js"></script>
+
     <script>
       Reveal.initialize({
         hash: true,
@@ -255,7 +267,17 @@
         center: true,
         width: 1600,
         height: 900,
-        margin: 0.06
+        margin: 0.06,
+        plugins: [ RevealMenu ],
+        menu: {
+          side: 'left',             // left sidebar
+          numbers: true,            // show slide numbers
+          markers: true,            // mark visited slides
+          titleSelector: 'h1, h2',  // first h1/h2 in each slide as menu title
+          hideMissingTitles: false, // list slides even if no title
+          openButton: true,         // show ≡ button
+          sticky: true              // keep the button visible
+        }
       });
     </script>
   </body>

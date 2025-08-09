@@ -1,530 +1,602 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>NYCICC Cyber Ministry SOP 2025 — Auto-Scaled Mobile-First</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NYCICC Cyber Ministry SOP 2025 — Auto-Scaled Mobile-First</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- Reveal.js core -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
 
-    <!-- Sidebar menu plugin -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/denehyg/reveal.js-menu@latest/menu.css">
+  <!-- Sidebar menu plugin -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/denehyg/reveal.js-menu@latest/menu.css">
 
-    <style>
-      html, body { height: 100%; margin: 0; }
-      .reveal { font-family: Inter, Arial, sans-serif; }
-      .reveal h1, .reveal h2, .reveal h3 { color: #FFFFFF; }
+  <style>
+    html, body { height: 100%; margin: 0; }
+    .reveal { font-family: Inter, Arial, sans-serif; }
+    .reveal h1, .reveal h2, .reveal h3 { color: #FFFFFF; }
 
-      /* Safe-area padding for notches on mobile */
-      .reveal .slides {
-        padding-left: env(safe-area-inset-left, 0);
-        padding-right: env(safe-area-inset-right, 0);
-      }
+    /* Safe-area padding for notches on mobile */
+    .reveal .slides {
+      padding-left: env(safe-area-inset-left, 0);
+      padding-right: env(safe-area-inset-right, 0);
+    }
 
-      /* Base slide typography (desktop-ish) — auto-fit script will scale this up/down */
+    /* Base slide typography (desktop-ish) — auto-fit script will scale this up/down */
+    .reveal section {
+      font-size: 30px;
+      line-height: 1.35;
+      padding: 12px 6px 72px;
+      position: relative;
+    }
+    ul { margin: 0.6em 0 0 0; }
+    li { margin: 0.22em 0; }
+    .tight li { margin: 0.16em 0; }
+    .muted { color: #B8B8B8; }
+    .small { font-size: 0.8em; }
+    .pill {
+      display:inline-block; padding:4px 10px; border:1px solid #2E2E2E;
+      border-radius:999px; background:#1A1A1A; color:#DADADA; margin-right:6px;
+    }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+
+    /* Menu button always visible */
+    .reveal .menu-button {
+      z-index: 1000;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    /* Fitbox that we scale to fill the visible area per slide */
+    .fitbox {
+      transform-origin: top left;
+      display: inline-block;
+      width: auto;
+      max-width: 100%;
+    }
+
+    /* Viewport pinned footer (static on resize, never overlaps content) */
+    .footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: max(env(safe-area-inset-bottom, 0px), 10px);
+      text-align: center;
+      font-size: clamp(12px, 1.6vw, 18px);
+      color: #9A9A9A;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    /* Mobile tweaks: stack columns and reduce UI chrome */
+    @media (max-width: 820px), (max-height: 640px) {
       .reveal section {
-        font-size: 30px;
-        line-height: 1.35;
-        padding: 12px 6px 72px;
-        position: relative;
+        font-size: 22px;
+        line-height: 1.4;
+        padding-bottom: 56px;
       }
-      ul { margin: 0.6em 0 0 0; }
-      li { margin: 0.22em 0; }
-      .tight li { margin: 0.16em 0; }
-      .muted { color: #B8B8B8; }
-      .small { font-size: 0.8em; }
-      .pill {
-        display:inline-block; padding:4px 10px; border:1px solid #2E2E2E;
-        border-radius:999px; background:#1A1A1A; color:#DADADA; margin-right:6px;
-      }
-      .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-      .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+      .reveal h1 { font-size: 36px; }
+      .reveal h2 { font-size: 28px; }
+      .reveal h3 { font-size: 24px; }
+      .small { font-size: 18px; }
+      .two-col, .three-col { display: block; }
+      .pill { font-size: 16px; padding: 3px 8px; }
+      ul { margin-top: 0.4em; }
+      li { margin: 0.18em 0; }
+      .reveal .slide-number { display: none !important; }
+      .reveal .slide-menu { width: 75% !important; }
+      .reveal .slide-menu .menu-panel { font-size: 16px; }
+    }
 
-      /* Menu button always visible */
-      .reveal .menu-button {
-        z-index: 1000;
-        opacity: 1 !important;
-        visibility: visible !important;
-      }
+    /* Super short screens */
+    @media (max-height: 540px) {
+      .reveal section { font-size: 20px; padding-bottom: 48px; }
+      .reveal h1 { font-size: 32px; }
+      .reveal h2 { font-size: 26px; }
+    }
 
-      /* Fitbox that we scale to fill the visible area per slide */
-      .fitbox {
-        transform-origin: top left;
-        display: inline-block;
-        width: auto;
-        max-width: 100%;
-      }
+    /* Accessibility enhancements */
+    nav.slide-menu {
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1001;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 12px;
+      border-radius: 4px;
+    }
+    nav.slide-menu a {
+      color: #FFFFFF;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+    nav.slide-menu a:hover {
+      text-decoration: underline;
+    }
 
-      /* Viewport pinned footer (static on resize, never overlaps content) */
-      .footer {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: max(env(safe-area-inset-bottom, 0px), 10px);
-        text-align: center;
-        font-size: clamp(12px, 1.6vw, 18px);
-        color: #9A9A9A;
-        pointer-events: none;
-        z-index: 20;
-      }
+    /* Performance optimization */
+    .fitbox img[data-src] {
+      opacity: 0;
+      transition: opacity 250ms ease-in-out;
+    }
+    .fitbox img[data-src].loaded {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-      /* Mobile tweaks: stack columns and reduce UI chrome */
-      @media (max-width: 820px), (max-height: 640px) {
-        .reveal section {
-          font-size: 22px;
-          line-height: 1.4;
-          padding-bottom: 56px;
-        }
-        .reveal h1 { font-size: 36px; }
-        .reveal h2 { font-size: 28px; }
-        .reveal h3 { font-size: 24px; }
-        .small { font-size: 18px; }
-        .two-col, .three-col { display: block; }
-        .pill { font-size: 16px; padding: 3px 8px; }
-        ul { margin-top: 0.4em; }
-        li { margin: 0.18em 0; }
-        .reveal .slide-number { display: none !important; }
-        .reveal .slide-menu { width: 75% !important; }
-        .reveal .slide-menu .menu-panel { font-size: 16px; }
-      }
+      <!-- Cover -->
+      <section data-auto-animate>
+        <div class="fitbox">
+          <h1 class="r-fit-text">NYCICC Cyber Ministry SOP 2025</h1>
+          <p class="small">Mission: Use digital tools to serve worship, disciple, and reach NYC</p>
+          <p><span class="pill">Live Service Management</span> <span class="pill">Rapid Content Creation</span></p>
+          <p class="muted small">Core values: Excellence · Consistency · Discipleship · Security</p>
+          <p class="small">Lead: Excel Espina · excel.espina@nycicc.org · (347) 837-4721</p>
+        </div>
+      </section>
 
-      /* Super short screens */
-      @media (max-height: 540px) {
-        .reveal section { font-size: 20px; padding-bottom: 48px; }
-        .reveal h1 { font-size: 32px; }
-        .reveal h2 { font-size: 26px; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-
-        <!-- Cover -->
-        <section data-auto-animate>
+      <!-- Pillars (parent) -->
+      <section>
+        <section>
           <div class="fitbox">
-            <h1>NYCICC Cyber Ministry SOP 2025</h1>
-            <p class="small">Mission: Use digital tools to serve worship, disciple, and reach NYC</p>
-            <p><span class="pill">Live Service Management</span> <span class="pill">Rapid Content Creation</span></p>
-            <p class="muted small">Core values: Excellence · Consistency · Discipleship · Security</p>
-            <p class="small">Lead: Excel Espina · excel.espina@nycicc.org · (347) 837-4721</p>
+            <h2>Two Pillars</h2>
+            <div class="two-col">
+              <div>
+                <h3>Live Service Management</h3>
+                <ul>
+                  <li>In-room screens/lyrics</li>
+                  <li>Livestream (YouTube + OBS)</li>
+                  <li>Reliable audio/video + backups</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Rapid Content Creation</h3>
+                <ul>
+                  <li>Weekly content that does ministry</li>
+                  <li>Follow-up to studies, groups, serving</li>
+                </ul>
+              </div>
+            </div>
+            <p class="small muted">Principles: weekly cadence · simple systems · quality > complexity · measurable outcomes</p>
           </div>
         </section>
 
-        <!-- Pillars (parent) -->
+        <!-- Vertical breakdown: LSM focus -->
         <section>
-          <section>
-            <div class="fitbox">
-              <h2>Two Pillars</h2>
-              <div class="two-col">
-                <div>
-                  <h3>Live Service Management</h3>
-                  <ul>
-                    <li>In-room screens/lyrics</li>
-                    <li>Livestream (YouTube + OBS)</li>
-                    <li>Reliable audio/video + backups</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3>Rapid Content Creation</h3>
-                  <ul>
-                    <li>Weekly content that does ministry</li>
-                    <li>Follow-up to studies, groups, serving</li>
-                  </ul>
-                </div>
-              </div>
-              <p class="small muted">Principles: weekly cadence · simple systems · quality > complexity · measurable outcomes</p>
-            </div>
-          </section>
-
-          <!-- Vertical breakdown: LSM focus -->
-          <section>
-            <div class="fitbox">
-              <h2>Live Service Management — Scope</h2>
-              <ul>
-                <li>Lyrics/Slides: planning, formatting, accessibility</li>
-                <li>Livestream: scenes, routing, tests, recording</li>
-                <li>Systems: cameras, audio, power, network redundancy</li>
-                <li>Runbook: incident logging and prevention</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- Vertical breakdown: RCC focus -->
-          <section>
-            <div class="fitbox">
-              <h2>Rapid Content Creation — Scope</h2>
-              <ul>
-                <li>Weekly cadence (Sun/Tue/Thu/Sat)</li>
-                <li>Capture → Edit → Caption → Publish → Respond</li>
-                <li>Distribution: IG, YT/Shorts, FB, (TikTok/LinkedIn)</li>
-                <li>Follow-up path: replies, invites, groups, care</li>
-              </ul>
-            </div>
-          </section>
+          <div class="fitbox">
+            <h2>Live Service Management — Scope</h2>
+            <ul>
+              <li>Lyrics/Slides: planning, formatting, accessibility</li>
+              <li>Livestream: scenes, routing, tests, recording</li>
+              <li>Systems: cameras, audio, power, network redundancy</li>
+              <li>Runbook: incident logging and prevention</li>
+            </ul>
+          </div>
         </section>
 
-        <!-- Roles (parent) -->
+        <!-- Vertical breakdown: RCC focus -->
         <section>
-          <section>
+          <div class="fitbox">
+            <h2>Rapid Content Creation — Scope</h2>
+            <ul>
+              <li>Weekly cadence (Sun/Tue/Thu/Sat)</li>
+              <li>Capture → Edit → Caption → Publish → Respond</li>
+              <li>Distribution: IG, YT/Shorts, FB, (TikTok/LinkedIn)</li>
+              <li>Follow-up path: replies, invites, groups, care</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- Roles (parent) -->
+      <section>
+        <section>
+          <div class="fitbox">
+            <h2>Roles & Responsibilities</h2>
+            <ul class="tight">
+              <li><b>Technical Director</b>: systems, training, QA, backups, checklists</li>
+              <li><b>Livestream Lead</b>: OBS scenes, routing, YT scheduling, recording</li>
+              <li><b>Lyrics/Slides Lead</b>: song order, formatting, CCLI if displayed</li>
+              <li><b>Content Lead</b>: calendar, capture, edit, post, analytics</li>
+              <li><b>Follow-Up Coordinator</b>: replies 24–48h, invites, 6-week path</li>
+            </ul>
+            <p class="small muted">Buddy system · clear handoffs · run-of-show · incident log · monthly review</p>
+          </div>
+        </section>
+
+        <!-- Vertical: Technical Director -->
+        <section>
+          <div class="fitbox">
+            <h2>Technical Director — Weekly</h2>
+            <ul>
+              <li>Verify camera, audio, network health</li>
+              <li>Ensure redundancy (UPS, hotspot, spare cables/batteries)</li>
+              <li>QA checklists: pre-service, go-live, post-service</li>
+              <li>Review incident log & assign fixes</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Vertical: Livestream Lead -->
+        <section>
+          <div class="fitbox">
+            <h2>Livestream Lead — Weekly</h2>
+            <ul>
+              <li>Schedule YT stream ≥1 day before; set metadata</li>
+              <li>OBS scenes: Pre, Welcome, Sermon, Lyrics/L3, Offering, Communion, Outro</li>
+              <li>Audio targets: LUFS -18 to -14; peaks ~ -6 dB</li>
+              <li>Run 2-min unlisted test; record locally; auto-start/stop off</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Vertical: Lyrics/Slides Lead -->
+        <section>
+          <div class="fitbox">
+            <h2>Lyrics/Slides Lead — Weekly</h2>
+            <ul>
+              <li>Lock song order ≥48h with worship leader</li>
+              <li>Source lyrics from official Song Book</li>
+              <li>Accessibility: ≥48pt fonts, high contrast</li>
+              <li>Export backup slides to USB (PDF/PNG)</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Vertical: Content Lead -->
+        <section>
+          <div class="fitbox">
+            <h2>Content Lead — Weekly</h2>
+            <ul>
+              <li>Sun: Scripture + sermon clip (60–90s)</li>
+              <li>Tue: Teaching nugget/carousel</li>
+              <li>Thu: Testimony/story</li>
+              <li>Sat: Invitation / “What to expect”</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Vertical: Follow-Up Coordinator -->
+        <section>
+          <div class="fitbox">
+            <h2>Follow-Up Coordinator — Weekly</h2>
+            <ul>
+              <li>Respond to comments/DMs within 24–48h</li>
+              <li>Offer clear next steps (study, group, serve)</li>
+              <li>6-week path: welcome → devos → group → call → serve → care</li>
+              <li>Escalate needs within 24h; protect privacy</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- LSM workflows (parent) -->
+      <section>
+        <section>
+          <div class="fitbox">
+            <h2>Worship Lyrics Workflow</h2>
+            <ul>
+              <li>Lock order ≥48h; verify with worship leader</li>
+              <li>Use official Song Book; alignment + readability</li>
+              <li>Accessibility: big fonts, high contrast, clean BG</li>
+              <li>Rehearsal run; export backup to USB</li>
+            </ul>
+            <p class="small muted">Compliance: CCLI if displayed; avoid posting full lyrics publicly</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="fitbox">
+            <h2>Livestream Prep (OBS + YT)</h2>
+            <ul>
+              <li>Schedule YT stream; set title, desc, tags, thumb</li>
+              <li>Scenes: Pre, Welcome, Sermon, Lyrics/L3, Offering, Communion, Outro</li>
+              <li>Label sources; optional hotkeys; lower-thirds ready</li>
+              <li>Test 2 min unlisted; record locally; monitor audio</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="fitbox">
+            <h2>Audio/Video Routing</h2>
+            <ul>
+              <li>Cameras: WB, exposure, matched FPS</li>
+              <li>Audio option A: DJI Mic → laptop (OBS Mic Receiver)</li>
+              <li>Audio option B: Board → camera → USB capture (OBS Camera)</li>
+              <li>Use closed-back headphones; HPF ~80 Hz on speech</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="fitbox">
+            <h2>Network & Fail-safes</h2>
+            <ul>
+              <li>Upload ≥10 Mbps; test speed + ping 30 min prior</li>
+              <li>Hotspot/secondary connection ready</li>
+              <li>UPS on mixer, PC, router/ONT</li>
+              <li>If stream drops: keep recording; post replay &lt; 2h</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- RCC workflows (parent) -->
+      <section>
+        <section>
+          <div class="fitbox">
+            <h2>Content Cadence</h2>
+            <ul>
+              <li>Sun: Scripture + sermon clip (60–90s)</li>
+              <li>Tue: Teaching nugget/carousel</li>
+              <li>Thu: Testimony/story</li>
+              <li>Sat: Invitation/What to expect</li>
+            </ul>
+            <p class="small muted">Batch record monthly; use caption/graphic templates</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="fitbox">
+            <h2>Funnel & Platforms</h2>
+            <ul>
+              <li>Top: Inspiration, highlights</li>
+              <li>Middle: Teachings, testimonies, Q&A</li>
+              <li>Bottom: Invites to study/groups/serve</li>
+              <li>Priority: IG, YT/Shorts, FB; then TikTok, LinkedIn</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="fitbox">
+            <h2>Follow-Up & Care</h2>
+            <ul>
+              <li>Respond to comments/DMs &lt; 24–48h</li>
+              <li>Offer next step link or connect to leader</li>
+              <li>Track outcomes: studies, group joins, serving</li>
+              <li>Privacy: consent-based; avoid sensitive details</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- Website & Quality (parent) -->
+      <section>
+        <section>
+          <div class="fitbox">
+            <h2>Website Updates (Monthly)</h2>
+            <ul>
+              <li>About, convictions, service times/location</li>
+              <li>Interest forms (Bible study, groups)</li>
+              <li>Contribution/Missions info</li>
+              <li>Embed latest sermon + events</li>
+              <li>Test forms, auto-replies, mobile accessibility</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="fitbox">
+            <h2>Quality, Training, Metrics</h2>
+            <ul>
+              <li>Checklists: pre, go-live, post, content QA</li>
+              <li>Training: 4-week onboarding; monthly workshops</li>
+              <li>Metrics: uptime, watch time, saves, form fills</li>
+              <li>Monthly review: wins, gaps, fixes; update SOPs</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- Quick Checklists (parent) -->
+      <section>
+        <section>
             <div class="fitbox">
-              <h2>Roles & Responsibilities</h2>
+              <h2>Sunday Service - Full Cadence</h2>
               <ul class="tight">
-                <li><b>Technical Director</b>: systems, training, QA, backups, checklists</li>
-                <li><b>Livestream Lead</b>: OBS scenes, routing, YT scheduling, recording</li>
-                <li><b>Lyrics/Slides Lead</b>: song order, formatting, CCLI if displayed</li>
-                <li><b>Content Lead</b>: calendar, capture, edit, post, analytics</li>
-                <li><b>Follow-Up Coordinator</b>: replies 24–48h, invites, 6-week path</li>
-              </ul>
-              <p class="small muted">Buddy system · clear handoffs · run-of-show · incident log · monthly review</p>
-            </div>
-          </section>
-
-          <!-- Vertical: Technical Director -->
-          <section>
-            <div class="fitbox">
-              <h2>Technical Director — Weekly</h2>
-              <ul>
-                <li>Verify camera, audio, network health</li>
-                <li>Ensure redundancy (UPS, hotspot, spare cables/batteries)</li>
-                <li>QA checklists: pre-service, go-live, post-service</li>
-                <li>Review incident log & assign fixes</li>
+                <li>Pre-Service Checklist</li>
+                <ul>
+                    <li>Lyrics</li>
+                    <li>Livestream</li>
+                    <li>In House Tech Prep</li>
+                    <li>Photography</li>
+                    <li>Video Shorts</li>
+                </ul>
+                <li>Charge</li>
+                <li>Communion</li>
+                <li>Post-Service Checklist</li>
+                <ul>
+                    <li>In House Devices Off</li>
+                    <li>Livestream Ended</li>
+                    <li>Photos Edited and Uploaded</li>
+                    <li>Shorts Processed</li>
+                </ul>
               </ul>
             </div>
           </section>
 
-          <!-- Vertical: Livestream Lead -->
-          <section>
-            <div class="fitbox">
-              <h2>Livestream Lead — Weekly</h2>
-              <ul>
-                <li>Schedule YT stream ≥1 day before; set metadata</li>
-                <li>OBS scenes: Pre, Welcome, Sermon, Lyrics/L3, Offering, Communion, Outro</li>
-                <li>Audio targets: LUFS -18 to -14; peaks ~ -6 dB</li>
-                <li>Run 2-min unlisted test; record locally; auto-start/stop off</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- Vertical: Lyrics/Slides Lead -->
-          <section>
-            <div class="fitbox">
-              <h2>Lyrics/Slides Lead — Weekly</h2>
-              <ul>
-                <li>Lock song order ≥48h with worship leader</li>
-                <li>Source lyrics from official Song Book</li>
-                <li>Accessibility: ≥48pt fonts, high contrast</li>
-                <li>Export backup slides to USB (PDF/PNG)</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- Vertical: Content Lead -->
-          <section>
-            <div class="fitbox">
-              <h2>Content Lead — Weekly</h2>
-              <ul>
-                <li>Sun: Scripture + sermon clip (60–90s)</li>
-                <li>Tue: Teaching nugget/carousel</li>
-                <li>Thu: Testimony/story</li>
-                <li>Sat: Invitation / “What to expect”</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- Vertical: Follow-Up Coordinator -->
-          <section>
-            <div class="fitbox">
-              <h2>Follow-Up Coordinator — Weekly</h2>
-              <ul>
-                <li>Respond to comments/DMs within 24–48h</li>
-                <li>Offer clear next steps (study, group, serve)</li>
-                <li>6-week path: welcome → devos → group → call → serve → care</li>
-                <li>Escalate needs within 24h; protect privacy</li>
-              </ul>
-            </div>
-          </section>
+        <section>
+          <div class="fitbox">
+            <h2>Pre-Service (In House Tech Prep)</h2>
+            <ul class="tight">
+              <li>Check Upload ≥10 Mbps Speed; hotspot ready</li>
+              <li>Cameras connected; batteries/SD checked</li>
+              <li>Audio route set (Mic Receiver or Camera)</li>
+              <li>OBS scenes verified; record enabled; test done</li>
+              <li>YouTube stream scheduled ≥1 day before</li>
+              <li>Speakers Checked</li>
+              <li>Batteries Checked</li>
+              <li>SD Cards Checked</li>
+              <li>Camera Checked</li>
+              <li>Mic Checked</li>
+              <li>Camera Checked</li>
+            </ul>
+          </div>
         </section>
 
-        <!-- LSM workflows (parent) -->
         <section>
-          <section>
-            <div class="fitbox">
-              <h2>Worship Lyrics Workflow</h2>
-              <ul>
-                <li>Lock order ≥48h; verify with worship leader</li>
-                <li>Use official Song Book; alignment + readability</li>
-                <li>Accessibility: big fonts, high contrast, clean BG</li>
-                <li>Rehearsal run; export backup to USB</li>
-              </ul>
-              <p class="small muted">Compliance: CCLI if displayed; avoid posting full lyrics publicly</p>
-            </div>
-          </section>
-
-          <section>
-            <div class="fitbox">
-              <h2>Livestream Prep (OBS + YT)</h2>
-              <ul>
-                <li>Schedule YT stream; set title, desc, tags, thumb</li>
-                <li>Scenes: Pre, Welcome, Sermon, Lyrics/L3, Offering, Communion, Outro</li>
-                <li>Label sources; optional hotkeys; lower-thirds ready</li>
-                <li>Test 2 min unlisted; record locally; monitor audio</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <div class="fitbox">
-              <h2>Audio/Video Routing</h2>
-              <ul>
-                <li>Cameras: WB, exposure, matched FPS</li>
-                <li>Audio option A: DJI Mic → laptop (OBS Mic Receiver)</li>
-                <li>Audio option B: Board → camera → USB capture (OBS Camera)</li>
-                <li>Use closed-back headphones; HPF ~80 Hz on speech</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <div class="fitbox">
-              <h2>Network & Fail-safes</h2>
-              <ul>
-                <li>Upload ≥10 Mbps; test speed + ping 30 min prior</li>
-                <li>Hotspot/secondary connection ready</li>
-                <li>UPS on mixer, PC, router/ONT</li>
-                <li>If stream drops: keep recording; post replay &lt; 2h</li>
-              </ul>
-            </div>
-          </section>
+          <div class="fitbox">
+            <h2>Pre-Service (Lyrics)</h2>
+            <ul class="tight">
+              <li>Song order verified (≥48h lock)</li>
+              <li>Lyrics from official Song Book</li>
+              <li>Formatting/readability checked</li>
+              <li>Backup slides to USB; accessibility confirmed</li>
+            </ul>
+          </div>
         </section>
 
-        <!-- RCC workflows (parent) -->
         <section>
-          <section>
-            <div class="fitbox">
-              <h2>Content Cadence</h2>
-              <ul>
-                <li>Sun: Scripture + sermon clip (60–90s)</li>
-                <li>Tue: Teaching nugget/carousel</li>
-                <li>Thu: Testimony/story</li>
-                <li>Sat: Invitation/What to expect</li>
-              </ul>
-              <p class="small muted">Batch record monthly; use caption/graphic templates</p>
-            </div>
-          </section>
-
-          <section>
-            <div class="fitbox">
-              <h2>Funnel & Platforms</h2>
-              <ul>
-                <li>Top: Inspiration, highlights</li>
-                <li>Middle: Teachings, testimonies, Q&A</li>
-                <li>Bottom: Invites to study/groups/serve</li>
-                <li>Priority: IG, YT/Shorts, FB; then TikTok, LinkedIn</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <div class="fitbox">
-              <h2>Follow-Up & Care</h2>
-              <ul>
-                <li>Respond to comments/DMs &lt; 24–48h</li>
-                <li>Offer next step link or connect to leader</li>
-                <li>Track outcomes: studies, group joins, serving</li>
-                <li>Privacy: consent-based; avoid sensitive details</li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-        <!-- Website & Quality (parent) -->
-        <section>
-          <section>
-            <div class="fitbox">
-              <h2>Website Updates (Monthly)</h2>
-              <ul>
-                <li>About, convictions, service times/location</li>
-                <li>Interest forms (Bible study, groups)</li>
-                <li>Contribution/Missions info</li>
-                <li>Embed latest sermon + events</li>
-                <li>Test forms, auto-replies, mobile accessibility</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <div class="fitbox">
-              <h2>Quality, Training, Metrics</h2>
-              <ul>
-                <li>Checklists: pre, go-live, post, content QA</li>
-                <li>Training: 4-week onboarding; monthly workshops</li>
-                <li>Metrics: uptime, watch time, saves, form fills</li>
-                <li>Monthly review: wins, gaps, fixes; update SOPs</li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-        <!-- Quick Checklists (parent) -->
-        <section>
-          <section>
-            <div class="fitbox">
-              <h2>Pre-Service (Tech)</h2>
-              <ul class="tight">
-                <li>Upload ≥10 Mbps; hotspot ready</li>
-                <li>Cameras connected; batteries/SD checked</li>
-                <li>Audio route set (Mic Receiver or Camera)</li>
-                <li>OBS scenes verified; record enabled; test done</li>
-                <li>YouTube stream scheduled ≥1 day before</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <div class="fitbox">
-              <h2>Pre-Service (Lyrics)</h2>
-              <ul class="tight">
-                <li>Song order verified (≥48h lock)</li>
-                <li>Lyrics from official Song Book</li>
-                <li>Formatting/readability checked</li>
-                <li>Backup slides to USB; accessibility confirmed</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <div class="fitbox">
-              <h2>Post-Service</h2>
-              <ul class="tight">
+          <div class="fitbox">
+            <h2>Post-Service</h2>
+            <ul class="tight">
                 <li>Stop stream/record; verify local file</li>
+                <li>Turn off all in house devices</li>
+                <li>Wrap and store all cables</li>
                 <li>Upload sermon/clip assets (label folders)</li>
-                <li>Log incidents and action items</li>
+                <li>Log incidents and action items (Write in book)</li>
                 <li>Begin content clipping (60–90s highlight)</li>
-              </ul>
-              <p class="small muted">Lead: Excel Espina · excel.espina@nycicc.org · (347) 837-4721</p>
-            </div>
-          </section>
+            </ul>
+            <p class="small muted">Lead: Excel Espina · excel.espina@nycicc.org · (347) 837-4721</p>
+          </div>
         </section>
+      </section>
 
-      </div>
     </div>
+  </div>
 
-    <!-- Viewport-pinned footer -->
-    <div class="footer">NYCICC Cyber Ministry — 2025</div>
+  <!-- Viewport-pinned footer -->
+  <div class="footer">NYCICC Cyber Ministry — 2025</div>
 
-    <!-- Reveal.js core -->
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
-    <!-- Sidebar menu plugin -->
-    <script src="https://cdn.jsdelivr.net/gh/denehyg/reveal.js-menu@latest/menu.js"></script>
+  <!-- Reveal.js core -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <!-- Sidebar menu plugin -->
+  <script src="https://cdn.jsdelivr.net/gh/denehyg/reveal.js-menu@latest/menu.js"></script>
 
-    <script>
-      // We will enforce a 3:4 aspect ratio canvas (portrait-friendly) to reduce horizontal cut-off on phones.
-      // Additionally, we run a robust auto-fit that scales .fitbox to the visible slide box.
+  <script>
+    // We will enforce a 3:4 aspect ratio canvas (portrait-friendly) to reduce horizontal cut-off on phones.
+    // Additionally, we run a robust auto-fit that scales .fitbox to the visible slide box.
 
-      function isSmallViewport() {
-        const w = window.innerWidth;
-        const h = window.innerHeight;
-        return w <= 820 || h <= 640;
-      }
+    function isSmallViewport() {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      return w <= 820 || h <= 640;
+    }
 
-      function computeSettings() {
-        const small = isSmallViewport();
-        // 3x4 aspect ratio (width:height = 3:4). Choose a base that fits well.
-        const width = 500;
-        const height = 800;
+    function computeSettings() {
+      const small = isSmallViewport();
+      // 3x4 aspect ratio (width:height = 3:4). Choose a base that fits well.
+      const width = 500;
+      const height = 800;
 
-        return {
-          hash: true,
-          slideNumber: small ? false : 'c/t',
-          progress: small ? false : true,
-          controls: true,
-          center: small ? true : true, // start at top on small screens for more usable space
-          width,
-          height,
-          margin: small ? 0.012 : 0.04, // tighter on mobile
-          minScale: 0.2,
-          maxScale: 2.0,
-          plugins: [ RevealMenu ],
-          menu: {
-            side: 'left',
-            numbers: true,
-            markers: true,
-            titleSelector: 'h1, h2',
-            hideMissingTitles: false,
-            openButton: true,
-            sticky: true
-          }
-        };
-      }
+      return {
+        hash: true,
+        slideNumber: small ? false : 'c/t',
+        progress: small ? false : true,
+        controls: true,
+        center: small ? true : true, // start at top on small screens for more usable space
+        width,
+        height,
+        margin: small ? 0.012 : 0.04, // tighter on mobile
+        minScale: 0.2,
+        maxScale: 2.0,
+        plugins: [ RevealMenu ],
+        disableLayout: false,
+        menu: {
+          side: 'left',
+          numbers: true,
+          markers: true,
+          titleSelector: 'h1, h2',
+          hideMissingTitles: false,
+          openButton: true,
+          sticky: true
+        }
+      };
+    }
 
-      Reveal.initialize(computeSettings());
+    Reveal.initialize(computeSettings());
 
-      // True-fit: scale .fitbox to fill the visible area while respecting footer and safe-area.
-      function fitCurrentSlide() {
-        const slide = Reveal.getCurrentSlide();
-        if (!slide) return;
-        const fitbox = slide.querySelector('.fitbox');
-        if (!fitbox) return;
+    // True-fit: scale .fitbox to fill the visible area while respecting footer and safe-area.
+    function fitCurrentSlide() {
+      const slide = Reveal.getCurrentSlide();
+      if (!slide) return;
+      const fitbox = slide.querySelector('.fitbox');
+      if (!fitbox) return;
 
-        // Reset to measure natural size
-        fitbox.style.transform = 'scale(1)';
+      // Reset to measure natural size
+      fitbox.style.transform = 'scale(1)';
 
-        // Visible slide rect (after Reveal's layout)
-        const slideRect = slide.getBoundingClientRect();
+      // Visible slide rect (after Reveal's layout)
+      const slideRect = slide.getBoundingClientRect();
 
-        // Compute available area minus bottom footer and a small padding
-        const footerEl = document.querySelector('.footer');
-        const footerStyles = footerEl ? getComputedStyle(footerEl) : null;
-        const footerHeight = footerEl ? (parseFloat(footerStyles.lineHeight) || parseFloat(footerStyles.fontSize) || 18) + 16 : 24;
+      // Compute available area minus bottom footer and a small padding
+      const footerEl = document.querySelector('.footer');
+      const footerStyles = footerEl ? getComputedStyle(footerEl) : null;
+      const footerHeight = footerEl ? (parseFloat(footerStyles.lineHeight) || parseFloat(footerStyles.fontSize) || 18) + 16 : 24;
 
-        const safeBottom = Math.max(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sat')||0) || 0, 0);
-        const PAD = 0.03; // 3% breathing room
+      const safeBottom = Math.max(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sat')||0) || 0, 0);
+      const PAD = 0.03; // 3% breathing room
 
-        const availW = slideRect.width * (1 - PAD);
-        const availH = (slideRect.height - footerHeight) * (1 - PAD);
+      const availW = slideRect.width * (1 - PAD);
+      const availH = (slideRect.height - footerHeight) * (1 - PAD);
 
-        const boxRect = fitbox.getBoundingClientRect();
-        const contentW = Math.max(1, boxRect.width);
-        const contentH = Math.max(1, boxRect.height);
+      const boxRect = fitbox.getBoundingClientRect();
+      const contentW = Math.max(1, boxRect.width);
+      const contentH = Math.max(1, boxRect.height);
 
-        const scaleW = availW / contentW;
-        const scaleH = availH / contentH;
-        const scale = Math.max(0.1, Math.min(scaleW, scaleH));
+      const scaleW = availW / contentW;
+      const scaleH = availH / contentH;
+      const scale = Math.max(0.1, Math.min(scaleW, scaleH));
 
-        fitbox.style.transform = 'scale(' + scale + ')';
-      }
+      fitbox.style.transform = 'scale(' + scale + ')';
+    }
 
-      // Fit on ready and slide changes
-      Reveal.on('ready', fitCurrentSlide);
-      Reveal.on('slidechanged', fitCurrentSlide);
+    // Fit on ready and slide changes
+    Reveal.on('ready', fitCurrentSlide);
+    Reveal.on('slidechanged', fitCurrentSlide);
 
-      // Reconfigure + refit on viewport/orientation changes
-      let resizeTimer;
-      function reconfigure() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          Reveal.configure(computeSettings());
-          Reveal.layout();
-          fitCurrentSlide();
-        }, 100);
-      }
-      window.addEventListener('resize', reconfigure);
-      window.matchMedia('(orientation: portrait)').addEventListener('change', reconfigure);
+    // Reconfigure + refit on viewport/orientation changes
+    let resizeTimer;
+    function reconfigure() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        Reveal.configure(computeSettings());
+        Reveal.layout();
+        fitCurrentSlide();
+      }, 100);
+    }
+    window.addEventListener('resize', reconfigure);
+    window.matchMedia('(orientation: portrait)').addEventListener('change', reconfigure);
 
-      // Refit after fonts load (prevents initial mis-measure)
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(() => {
-          setTimeout(() => { Reveal.layout(); fitCurrentSlide(); }, 50);
-        });
-      }
-
-      // Also refit after menu opens/closes (layout can shift)
-      document.addEventListener('menu-ready', () => {
+    // Refit after fonts load (prevents initial mis-measure)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
         setTimeout(() => { Reveal.layout(); fitCurrentSlide(); }, 50);
       });
-    </script>
-  </body>
+    }
+
+    // Also refit after menu opens/closes (layout can shift)
+    document.addEventListener('menu-ready', () => {
+      setTimeout(() => { Reveal.layout(); fitCurrentSlide(); }, 50);
+    });
+
+    // Lazy load images
+    document.addEventListener("DOMContentLoaded", function() {
+      const images = document.querySelectorAll('.fitbox img[data-src]');
+      images.forEach(img => {
+        img.src = img.getAttribute('data-src');
+        img.classList.add('loaded');
+      });
+    });
+  </script>
+</body>
 </html>

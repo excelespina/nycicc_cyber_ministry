@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Ministry Strategic Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Color Palette: Energetic & Playful -->
+    <!-- Plan Narrative: Hero Section -> Vision -> Mission -> Core Convictions -> Ministry Structure -> Department Responsibilities -> Team Roster -> Roles & Responsibilities -> Strategic Goals -> Success Metric -> Recruitment -> Upcoming Events -->
+    <!-- Visualization Choices: Ministry Structure -> Flow Chart (HTML/Tailwind, Organize). Confirmed NO SVG and NO Mermaid JS used. -->
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center py-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-[#006494]">Cyber Ministry</h1>
+            <p class="mt-4 text-xl md:text-2xl font-light text-[#0582CA]">A Strategic Vision for Digital Outreach</p>
+        </header>
+
+        <section id="vision" class="my-12">
+             <div class="max-w-4xl mx-auto bg-white text-gray-800 rounded-xl shadow-lg p-8 border-t-4 border-[#006494]">
+                <h2 class="text-2xl font-bold text-center text-[#006494] mb-4">Our Vision</h2>
+                <p class="text-lg text-center">
+                    To be a thriving, mature ministry that brings people closer to God by creating a powerful and welcoming digital front door for the church, turning online engagement into life-changing spiritual connections.
+                </p>
+            </div>
+        </section>
+
+        <section id="mission" class="my-12">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center border-t-4 border-[#00A6FB]">
+                <h2 class="text-2xl font-bold text-[#006494] mb-4">Our Mission</h2>
+                <p class="text-lg text-gray-600">
+                    To use digital tools and platforms to spread the message of the Gospel, engage our online community, and support the church's worship and outreach efforts with technical excellence and a servant's heart.
+                </p>
+                 <p class="text-md text-gray-500 italic mt-4">"Therefore go and make disciples of all nations..." - Matthew 28:19</p>
+            </div>
+        </section>
+
+        <section id="convictions" class="my-12">
+             <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center border-t-4 border-[#F9A620]">
+                <h2 class="text-2xl font-bold text-[#006494] mb-6">Our Core Convictions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 text-gray-600">
+                    <div>
+                        <h3 class="font-bold text-lg">Excellence for His Glory</h3>
+                        <p class="text-sm italic mt-1">"Whatever you do, work at it with all your heart, as working for the Lord." - Col 3:23</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">Unity in Purpose</h3>
+                        <p class="text-sm italic mt-1">"...as each part does its work." - Eph 4:16</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">Faithful Stewardship</h3>
+                        <p class="text-sm italic mt-1">"Whoever can be trusted with very little can also be trusted with much..." - Luke 16:10-12</p>
+                    </div>
+                    <div>
+                         <h3 class="font-bold text-lg">Sober-Minded Urgency</h3>
+                        <p class="text-sm italic mt-1">"Be very careful, then, how you live... making the most of every opportunity..." - Eph 5:15-18</p>
+                    </div>
+                     <div>
+                        <h3 class="font-bold text-lg">Using Our Talents for God</h3>
+                        <p class="text-sm italic mt-1">Nurturing our gifts to glorify God and fulfill the mission. "do it all in the name of the Lord Jesus..." - Col 3:17</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">Attention to Detail</h3>
+                        <p class="text-sm italic mt-1">Giving our all to even the smallest tasks. "Whatever your hand finds to do, do it with all your might..." - Ecclesiastes 9:10</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="structure" class="my-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#006494]">Ministry Structure & Workflow</h2>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">Our ministry is built on four collaborative pillars. Content flows from creation to distribution, with technical support enabling the entire process and follow-up capturing the fruit of our outreach.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-8 md:gap-4 text-center">
+
+                <div class="flex flex-col items-center w-full md:w-1/4">
+                    <div class="bg-white rounded-lg shadow-md p-6 w-full h-full flex flex-col justify-center items-center border-b-4 border-[#F9A620]">
+                        <div class="text-4xl mb-3">🎨</div>
+                        <h3 class="font-bold text-lg text-[#006494]">Content Creation</h3>
+                        <p class="text-sm text-gray-500 mt-1">Develops engaging videos and testimonies.</p>
+                    </div>
+                </div>
+
+                <div class="text-2xl text-[#0582CA] self-center transform md:rotate-0 rotate-90">&rarr;</div>
+
+                <div class="flex flex-col items-center w-full md:w-1/4">
+                    <div class="bg-white rounded-lg shadow-md p-6 w-full h-full flex flex-col justify-center items-center border-b-4 border-[#F86624]">
+                        <div class="text-4xl mb-3">📢</div>
+                        <h3 class="font-bold text-lg text-[#006494]">Social Media</h3>
+                        <p class="text-sm text-gray-500 mt-1">Posts content across all platforms to maximize reach.</p>
+                    </div>
+                </div>
+                
+                <div class="text-2xl text-[#0582CA] self-center transform md:rotate-0 rotate-90">&rarr;</div>
+
+                <div class="flex flex-col items-center w-full md:w-1/4">
+                    <div class="bg-white rounded-lg shadow-md p-6 w-full h-full flex flex-col justify-center items-center border-b-4 border-[#00A6FB]">
+                        <div class="text-4xl mb-3">🤝</div>
+                        <h3 class="font-bold text-lg text-[#006494]">Follow-Up</h3>
+                        <p class="text-sm text-gray-500 mt-1">Connects with individuals for Bible studies.</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex flex-col justify-center items-center px-4">
+                     <div class="w-px h-full bg-gray-300"></div>
+                </div>
+                
+                <div class="flex md:flex-col items-center justify-center w-full md:w-auto mt-8 md:mt-0">
+                    <div class="w-full h-px md:w-px md:h-full bg-gray-300 md:hidden"></div>
+                    <div class="bg-white rounded-lg shadow-md p-6 w-full md:w-auto h-full flex flex-col justify-center items-center border-b-4 border-[#0582CA]">
+                        <div class="text-4xl mb-3">💻</div>
+                        <h3 class="font-bold text-lg text-[#006494]">Audio/Visual (AV)</h3>
+                        <p class="text-sm text-gray-500 mt-1">Provides technical support for all services & events.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="department-roles" class="my-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#006494]">Department Responsibilities</h2>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">Each team has a specific focus, working together to create a seamless digital ministry experience.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="font-bold text-xl text-center text-[#006494] mb-3">💻 Audio/Visual (AV)</h3>
+                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                        <li>Manage live sound, video projection, and lighting during services.</li>
+                        <li>Operate cameras and streaming software for online broadcasts.</li>
+                        <li>Record sermons and events for later use by the Content team.</li>
+                        <li>Ensure a high-quality, distraction-free technical experience.</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="font-bold text-xl text-center text-[#006494] mb-3">🎨 Content Creation</h3>
+                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                        <li>Film, edit, and produce videos (sermon clips, testimonies, event promos).</li>
+                        <li>Design graphics for social media, sermon series, and events.</li>
+                        <li>Collaborate with the AV team to repurpose recorded content.</li>
+                        <li>Ensure all content aligns with the church's message and brand.</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="font-bold text-xl text-center text-[#006494] mb-3">📢 Social Media</h3>
+                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                        <li>Post approved content across all church social media platforms.</li>
+                        <li>Engage with the online community through comments and messages.</li>
+                        <li>Create and manage a content calendar to ensure consistent posting.</li>
+                        <li>Monitor trends and analytics to increase reach and engagement.</li>
+                    </ul>
+                </div>
+                 <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="font-bold text-xl text-center text-[#006494] mb-3">🤝 Follow-Up</h3>
+                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                        <li>Monitor all platforms for prayer requests and questions about faith.</li>
+                        <li>Respond to initial inquiries and connect individuals with regional leaders.</li>
+                        <li>Track all online requests for Bible studies and report them weekly.</li>
+                        <li>Ensure every person who reaches out feels seen, heard, and valued.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="my-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#006494]">Meet Our Dedicated Team</h2>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">Our ministry is a partnership between congregational leaders who set the vision and regional teams who serve their local church bodies.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-[#006494] mb-4">Overall & Congregational Leadership</h3>
+                     <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-gray-700">
+                        <span><span class="font-semibold text-lg">Ministry Lead:</span> Excel</span>
+                        <span class="hidden md:inline text-gray-300">|</span>
+                        <span><span class="font-semibold">AV Leader:</span> Brandon</span>
+                        <span class="hidden md:inline text-gray-300">|</span>
+                        <span><span class="font-semibold">Content Leader:</span> Alexis</span>
+                        <span class="hidden md:inline text-gray-300">|</span>
+                        <span><span class="font-semibold">Social Media Leader:</span> Marcella</span>
+                        <span class="hidden md:inline text-gray-300">|</span>
+                        <span><span class="font-semibold">Follow-Up Leaders:</span> Sara & Jamilia</span>
+                    </div>
+                </div>
+                <hr class="my-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+                    <div class="text-center md:text-left">
+                        <h4 class="text-xl font-bold text-[#006494] mb-4 border-b-2 border-[#00A6FB] pb-2">Manhattan Team</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-semibold">Hillary, Khalil, Erica:</span> AV</li>
+                            <li><span class="font-semibold">Yao:</span> Content, Social</li>
+                            <li><span class="font-semibold">Daniel:</span> Content, Follow-Up</li>
+                        </ul>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h4 class="text-xl font-bold text-[#006494] mb-4 border-b-2 border-[#00A6FB] pb-2">Brooklyn Team</h4>
+                         <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-semibold">Richey:</span> AV Lead</li>
+                            <li><span class="font-semibold">Sara:</span> AV, Follow-Up</li>
+                            <li><span class="font-semibold">Jamilia:</span> Content, Follow-Up</li>
+                        </ul>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h4 class="text-xl font-bold text-[#006494] mb-4 border-b-2 border-[#00A6FB] pb-2">Queens Team</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-semibold">Brandon:</span> AV Lead, Follow-Up</li>
+                            <li><span class="font-semibold">Julio:</span> Content, Social</li>
+                        </ul>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h4 class="text-xl font-bold text-[#006494] mb-4 border-b-2 border-[#00A6FB] pb-2">Bronx Team</h4>
+                        <ul class="space-y-2 text-gray-700">
+                           <li><span class="font-semibold">Alexis:</span> Content Lead</li>
+                           <li><span class="font-semibold">Chris:</span> AV</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="roles" class="my-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#006494]">Defining Our Roles: Congregational vs. Regional</h2>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">Clarity in our roles ensures we function as one body. Congregational leadership steers the ship, while regional teams power the engine room.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-[#006494] text-center mb-4">Congregational Responsibilities</h3>
+                    <ul class="space-y-4 text-gray-700 list-disc list-inside">
+                        <li><span class="font-semibold">Vision & Strategy:</span> Work with church leadership to set the overall direction, goals, and brand for the Cyber Ministry.</li>
+                        <li><span class="font-semibold">Major Events:</span> Lead the planning and execution for large-scale events like conferences and Tri-State services.</li>
+                        <li><span class="font-semibold">Training & Resources:</span> Equip regional teams with the skills, tools, and best practices they need to succeed.</li>
+                        <li><span class="font-semibold">Content Approval:</span> Work with church leadership to ensure all major content is theologically sound and aligns with our brand.</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-[#006494] text-center mb-4">Regional Responsibilities</h3>
+                    <ul class="space-y-4 text-gray-700 list-disc list-inside">
+                        <li><span class="font-semibold">Weekly Execution:</span> Manage all technical aspects (AV, streaming) for local weekly services and events.</li>
+                        <li><span class="font-semibold">Local Content Capture:</span> Record sermons, capture photos, and gather testimonies from the local congregation.</li>
+                        <li><span class="font-semibold">Community Engagement:</span> Manage local social media presence and perform initial follow-up with contacts from your region.</li>
+                        <li><span class="font-semibold">Team Coordination:</span> Organize and schedule local team members to ensure all roles are covered for services.</li>
+                        <li><span class="font-semibold">Reporting:</span> Communicate needs, successes, and online engagement metrics back to congregational leadership.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="goals" class="my-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#006494]">Our Four Strategic Goals</h2>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">To achieve our vision, we are focused on four key objectives that guide every action we take, from content creation to technical execution.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
+                    <div class="flex-grow">
+                        <div class="text-5xl mb-4">🕊️</div>
+                        <h3 class="text-xl font-bold text-[#006494]">Expand Digital Evangelism</h3>
+                        <p class="mt-2 text-gray-600">Increase our online reach with viral, Gospel-centered content.</p>
+                    </div>
+                    <p class="text-sm italic text-gray-500 mt-4">"Go into all the world and preach the gospel to all creation." - Mark 16:15</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
+                    <div class="flex-grow">
+                        <div class="text-5xl mb-4">🔗</div>
+                        <h3 class="text-xl font-bold text-[#006494]">Facilitate Connections</h3>
+                        <p class="mt-2 text-gray-600">Turn online interest into opportunities for spiritual growth.</p>
+                    </div>
+                    <p class="text-sm italic text-gray-500 mt-4">"Therefore encourage one another and build each other up." - 1 Thess 5:11</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
+                    <div class="flex-grow">
+                        <div class="text-5xl mb-4">🎥</div>
+                        <h3 class="text-xl font-bold text-[#006494]">Enhance Worship</h3>
+                        <p class="mt-2 text-gray-600">Provide a seamless technical experience for all services.</p>
+                    </div>
+                    <p class="text-sm italic text-gray-500 mt-4">"Worship in the Spirit and in truth." - John 4:24</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
+                    <div class="flex-grow">
+                        <div class="text-5xl mb-4">🌱</div>
+                        <h3 class="text-xl font-bold text-[#006494]">Develop Maturity & Skills</h3>
+                        <p class="mt-2 text-gray-600">Invest in the growth and skill of every team member.</p>
+                    </div>
+                    <p class="text-sm italic text-gray-500 mt-4">"...so that the body of Christ may be built up." - Eph 4:12-13</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="success-metric" class="my-20">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center border-t-4 border-[#0582CA]">
+                <h2 class="text-2xl font-bold text-[#006494] mb-4">How We Measure Success</h2>
+                <p class="text-xl text-gray-700 font-light">
+                    Our primary measure of success is the fruit of our labor:
+                </p>
+                <p class="text-3xl text-[#006494] font-bold my-4">The number of Bible studies established through our online outreach.</p>
+                <p class="text-md text-gray-500 italic mt-4">"So the word of God spread. The number of disciples... increased rapidly." - Acts 6:7</p>
+            </div>
+        </section>
+
+        <section id="recruiting" class="my-20">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-[#006494]">Expanding Our Reach</h2>
+                <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">To achieve excellence in all we do, we are prayerfully seeking to build new Cyber Ministry teams in New Jersey and Connecticut to better serve the growing online community in those regions.</p>
+            </div>
+        </section>
+
+        <section id="events" class="my-20">
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-[#006494] text-center mb-6">Upcoming Events & Responsibilities</h3>
+                <div class="space-y-4 text-gray-700">
+                    <div class="pb-2">
+                        <h4 class="font-bold text-lg text-[#0582CA]">Regional Services</h4>
+                        <p><strong class="font-semibold">Frequency:</strong> Weekly</p>
+                        <p><strong class="font-semibold">Task:</strong> Ongoing AV & streaming support.</p>
+                    </div>
+                    <hr>
+                    <div class="py-2">
+                        <h4 class="font-bold text-lg text-[#0582CA]">Tri-State Services</h4>
+                        <p><strong class="font-semibold">Frequency:</strong> Monthly</p>
+                        <p><strong class="font-semibold">Task:</strong> Coordinated AV & content support.</p>
+                    </div>
+                    <hr>
+                    <div class="py-2">
+                        <h4 class="font-bold text-lg text-[#0582CA]">NEMC Conference</h4>
+                        <p><strong class="font-semibold">Date:</strong> January 9-11, 2026</p>
+                        <p><strong class="font-semibold">Task:</strong> Full-scale production and social media campaign.</p>
+                    </div>
+                    <hr>
+                    <div class="pt-2">
+                        <h4 class="font-bold text-lg text-[#0582CA]">Promised Land Conference</h4>
+                        <p><strong class="font-semibold">Date:</strong> December 2025</p>
+                        <p><strong class="font-semibold">Task:</strong> Comprehensive AV coverage and promotion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
+
